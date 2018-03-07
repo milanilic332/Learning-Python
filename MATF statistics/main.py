@@ -1,5 +1,6 @@
 import urllib.request as urlr
 import sys, re
+import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
@@ -34,6 +35,9 @@ def firstLetterDist(names):
 		sortedFirstLetters[a] = b
 	
 	plt.bar(sortedFirstLetters.keys(), sortedFirstLetters.values())
+	plt.ylabel('Broj pojavljivanja')
+	plt.xlabel('Slova')
+	plt.title('Raspodela pocetnih slova u imenu')
 	plt.show()
 
 def letterDist(names):
@@ -52,6 +56,9 @@ def letterDist(names):
 		sortedLetters[a] = b
 	
 	plt.bar(sortedLetters.keys(), sortedLetters.values())
+	plt.ylabel('Broj pojavljivanja')
+	plt.xlabel('Slova')
+	plt.title('Raspodela svih slova u imenu i prezimenu')
 	plt.show()	
 
 if __name__ == '__main__':
