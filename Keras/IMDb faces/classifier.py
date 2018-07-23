@@ -72,8 +72,8 @@ def main():
     model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
     # Training a model.
-    model.fit_generator(generator=train_generator, steps_per_epoch=6956//16, epochs=4,
-                        validation_data=test_generator, validation_steps=3000//16)
+    model.fit_generator(generator=train_generator, steps_per_epoch=6956//16, epochs=10,
+                        validation_data=test_generator, validation_steps=3000//32)
 
     # Saving weights of a model
     model.save_weights('models/final_CNN.h5')
