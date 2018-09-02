@@ -1,6 +1,7 @@
 import numpy as np
 import os
-from keras.models import Sequential
+from copy import copy
+from keras.models import Sequential, load_model
 from keras.layers import Dense, LSTM, Dropout
 from keras.optimizers import Adam
 from keras.utils import np_utils
@@ -75,7 +76,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 # Writing the 1000 character long prediction after each epoch
 def on_epoch_end(epoch, logs):
-    pattern = sen[0]
+    pattern = copy(sen[0])
     with open('data/result-after-' + str(epoch) + '-epoch80.txt', 'w+') as res:
         for i in pattern:
             res.write(int_to_char[i])
